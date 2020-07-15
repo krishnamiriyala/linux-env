@@ -1,14 +1,16 @@
+---
 - apt:
     name:
-    - curl
-    - gnupg
+      - curl
+      - gnupg
 
 - apt_key:
-   url: https://bazel.build/bazel-release.pub.gpg
-   state: present      
+    url: https://bazel.build/bazel-release.pub.gpg
+    state: present
 
 - apt_repository:
     repo: deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8
+
     state: present
     filename: bazel.list
 
@@ -16,16 +18,16 @@
 
 - apt:
     name:
-    - bazel-3.1.0    
+      - bazel-3.1.0
     state: present
 
 - command:
-    cmd: ln -s /usr/bin/bazel-3.1.0 /usr/bin/bazel    
+    cmd: ln -s /usr/bin/bazel-3.1.0 /usr/bin/bazel
     creates: /usr/bin/bazel
 
--   name: Install launcher requirements
-    apt:
-      name:
+- name: Install launcher requirements
+  apt:
+    name:
       - arpwatch
       - bazel-3.1.0
       - build-essential
@@ -42,15 +44,15 @@
       - unzip
       - vim
       - wireshark
-      state: present
+    state: present
 
--   name: Install PIP pre-requirements
-    pip: name=pip state=latest
+- name: Install PIP pre-requirements
+  pip: name=pip state=latest
 
--   name: Install PIP based requirements
-    pip:
-      state: latest
-      name:
+- name: Install PIP based requirements
+  pip:
+    state: latest
+    name:
       - ipaddr
       - jinja2
       - mako
@@ -68,7 +70,7 @@
     limit_item: "{{item.limit_item}}"
     value: "{{item.value}}"
   with_items:
-    - { limit_type: '-', limit_item: 'nofile', value: 65536 }
-    - { limit_type: '-', limit_item: 'nproc', value: 65536 }
-    - { limit_type: 'soft', limit_item: 'memlock', value: unlimited }
-    - { limit_type: 'hard', limit_item: 'memlock', value: unlimited }
+    - {limit_type: '-', limit_item: 'nofile', value: 65536}
+    - {limit_type: '-', limit_item: 'nproc', value: 65536}
+    - {limit_type: 'soft', limit_item: 'memlock', value: unlimited}
+    - {limit_type: 'hard', limit_item: 'memlock', value: unlimited}
