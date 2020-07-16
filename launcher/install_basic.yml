@@ -34,8 +34,10 @@
       - build-essential
       - colordiff
       - curl
+      - cython                  # nsx-sdk builds
       - git
       - git-review
+      - htop
       - lib32ncurses5-dev
       - lib32z1
       - mosh

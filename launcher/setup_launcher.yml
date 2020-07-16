@@ -3,4 +3,5 @@
   connection: local
   tasks:
   - include: install_basic.yml
-  - include: git_config.yml
+  - include: config_ldap.yml
+  - include: config_git.yml
