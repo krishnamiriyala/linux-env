@@ -21,9 +21,10 @@
       - bazel-3.1.0
     state: present
 
-- command:
-    cmd: ln -s /usr/bin/bazel-3.1.0 /usr/bin/bazel
-    creates: /usr/bin/bazel
+- file:
+    src: /usr/bin/bazel-3.1.0
+    dest:  /usr/bin/bazel
+    state: link
 
 - name: Install launcher requirements
   apt:
@@ -35,7 +36,11 @@
       - curl
       - git
       - git-review
+      - lib32ncurses5-dev
+      - lib32z1
       - mosh
+      - nfs-common
+      - python3
       - python3-pip
       - python-yaml
       - screen
@@ -43,8 +48,14 @@
       - traceroute
       - unzip
       - vim
+      - yamllint
       - wireshark
     state: present
+
+- file:
+    src: /usr/bin/python3
+    dest:  /usr/bin/python
+    state: link
 
 - name: Install PIP pre-requirements
   pip: name=pip state=latest
@@ -74,3 +85,40 @@
     - {limit_type: '-', limit_item: 'nproc', value: 65536}
     - {limit_type: 'soft', limit_item: 'memlock', value: unlimited}
     - {limit_type: 'hard', limit_item: 'memlock', value: unlimited}
+
+- git_config:
+    name: core.editor
+    scope: global
+    value: vim
+
+# scope=system is the default
+- git_config:
+    name: alias.diffc
+    value: diff --cached
+    scope: global
+
+- git_config:
+    name: color.ui
+    value: auto
+    scope: global
+
+- file:
+   path: /build/apps
+   state: directory
+
+- file:
+   path: /build/toolchain
+   state: directory
+
+- mount:
+    path: /build/apps
+    src: build-apps.eng.vmware.com:/apps
+    fstype: nfs
+    opts: rw
+    state: mounted
+- mount:
+    path: /build/toolchain
+    src: build-toolchain.eng.vmware.com:/toolchain
+    fstype: nfs
+    opts: rw
+    state: mounted
