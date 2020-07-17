@@ -3,8 +3,9 @@
 # 10.216.93.4
 # connection: local
   tasks:
+  - include: config_ldap.yml
   - include: install_bazel.yml
   - include: install_chrome.yml
+  - include: install_intellij.yml
   - include: install_basic.yml
-# - include: config_ldap.yml
   - include: config_git.yml

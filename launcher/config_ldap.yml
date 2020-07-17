@@ -1,0 +1,24 @@
+---
+- apt: update_cache=yes
+- apt:
+    name:
+      - wget
+    state: present
+
+- get_url:
+    url: http://engweb.eng.vmware.com/sipublic/ldap/ldap-eng-vmware.pem
+    dest: /etc/ssl/certs/ldap-eng-vmware.pem
+
+- apt:
+    name:
+      - ldap-auth-config
+      - ldap-auth-client
+      - autofs-ldap
+      - nis
+      - nslcd
+      - libnss-ldapd
+      - ldap-utils
+    state: present
+
+- apt:
+    deb: http://archive.ubuntu.com/ubuntu/pool/universe/a/auth-client-config/auth-client-config_0.9ubuntu1_all.deb

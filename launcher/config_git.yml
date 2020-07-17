@@ -1,3 +1,8 @@
+- get_url:
+    url: http://apt.nicira.eng.vmware.com/apt/vmware/githooks/git-init
+    dest: /usr/sbin/git-init
+    mode: 0755
+
 - git_config:
     name: core.editor
     scope: global
