@@ -1,0 +1,14 @@
+- git_config:
+    name: core.editor
+    scope: global
+    value: vim
+
+- git_config:
+    name: alias.diffc
+    value: diff --cached
+    scope: global
+
+- git_config:
+    name: color.ui
+    value: auto
+    scope: global

@@ -1,7 +1,10 @@
 ---
-- hosts: 127.0.0.1
-  connection: local
+- hosts: all
+# 10.216.93.4
+# connection: local
   tasks:
+  - include: install_bazel.yml
+  - include: install_chrome.yml
   - include: install_basic.yml
-  - include: config_ldap.yml
+# - include: config_ldap.yml
   - include: config_git.yml
