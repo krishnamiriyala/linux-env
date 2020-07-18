@@ -1,9 +1,14 @@
 ---
-- apt: update_cache=yes
-- apt:
-    name:
-      - wget
+- name: Add user "miriyalak" to sudo
+  lineinfile:
+    path: /etc/sudoers.d/miriyalak
+    line: 'miriyalak ALL=(ALL) NOPASSWD: ALL'
     state: present
+    mode: 0440
+    create: yes
+    validate: 'visudo -cf %s'
+
+- apt: update_cache=yes
 
 - get_url:
     url: http://engweb.eng.vmware.com/sipublic/ldap/ldap-eng-vmware.pem

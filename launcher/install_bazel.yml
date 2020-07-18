@@ -23,5 +23,5 @@
 
 - file:
     src: /usr/bin/bazel-3.1.0
-    dest:  /usr/bin/bazel
+    dest: /usr/bin/bazel
     state: link
