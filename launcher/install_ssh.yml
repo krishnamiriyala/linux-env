@@ -1,4 +1,4 @@
-
+---
 - lineinfile:
     path: /etc/ssh/sshd_config
     state: present

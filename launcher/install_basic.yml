@@ -10,10 +10,12 @@
       - git
       - git-review
       - htop
+      - jq
       - lib32ncurses5-dev
       - lib32z1
       - mosh
       - nfs-common
+      - openjdk-14-jre-headless
       - open-vm-tools-desktop
       - 2to3
       - python3
@@ -30,7 +32,7 @@
 
 - file:
     src: /usr/bin/python3
-    dest:  /usr/bin/python
+    dest: /usr/bin/python
     state: link
 
 - name: Install PIP pre-requirements
@@ -63,12 +65,12 @@
     - {limit_type: 'hard', limit_item: 'memlock', value: unlimited}
 
 - file:
-   path: /build/apps
-   state: directory
+    path: /build/apps
+    state: directory
 
 - file:
-   path: /build/toolchain
-   state: directory
+    path: /build/toolchain
+    state: directory
 
 - mount:
     path: /build/apps
