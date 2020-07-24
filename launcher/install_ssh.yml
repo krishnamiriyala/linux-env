@@ -1,0 +1,22 @@
+
+- lineinfile:
+    path: /etc/ssh/sshd_config
+    state: present
+    regexp: X11Forwarding
+    line: X11Forwarding yes
+
+- lineinfile:
+    path: /etc/ssh/sshd_config
+    state: present
+    regexp: X11DisplayOffset
+    line: X11DisplayOffset 10
+
+- lineinfile:
+    path: /etc/ssh/sshd_config
+    state: present
+    regexp: X11UseLocalhost
+    line: X11UseLocalhost no
+
+- service:
+    name: ssh
+    state: restarted

@@ -1,5 +1,0 @@
----
-- snap:
-    name: intellij-idea-ultimate
-    channel: latest/stable
-    classic: true
