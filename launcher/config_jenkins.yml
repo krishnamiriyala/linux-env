@@ -1,0 +1,5 @@
+---
+- file:
+    path: /var/tmp/jenkins/jslave
+    state: directory
+    mode: '0777'

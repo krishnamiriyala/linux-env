@@ -13,6 +13,6 @@
     name: aws-cli
     channel: latest/stable
     classic: true
-- apt:
+- pip:
     name: azure-cli
     state: latest

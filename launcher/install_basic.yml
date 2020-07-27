@@ -15,18 +15,16 @@
       - lib32z1
       - mosh
       - nfs-common
-      - openjdk-14-jre-headless
+      - openjdk-11-jre-headless
       - open-vm-tools-desktop
       - 2to3
       - python3
       - python3-pip
-      - python-yaml
       - screen
       - tmux
       - traceroute
       - unzip
       - vim
-      - yamllint
       - wireshark
     state: present
 
@@ -52,6 +50,7 @@
       - pyyaml
       - scapy
       - termcolor
+      - yamllint
 
 - pam_limits:
     domain: "*"

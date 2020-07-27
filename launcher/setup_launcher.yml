@@ -7,3 +7,4 @@
   - include: install_ssh.yml
   - include: install_apps.yml
   - include: config_git.yml
+  - include: config_jenkins.yml
