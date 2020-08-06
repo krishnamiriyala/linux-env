@@ -16,3 +16,14 @@
 - pip:
     name: azure-cli
     state: latest
+- name: Extract GO to /usr/local/go/bin
+  unarchive:
+    src:  https://golang.org/dl/go1.14.6.linux-amd64.tar.gz
+    dest: /usr/local
+    remote_src: yes
+- name: Add GOPATH to environment
+  lineinfile:
+    path: /etc/environment
+    state: present
+    regexp: /usr/local/go/bin
+    line: PATH=$PATH:/usr/local/go/bin
