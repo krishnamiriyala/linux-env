@@ -28,6 +28,13 @@
       - wireshark
     state: present
 
+- name: Remove python3-yaml (will use pip3 instead)
+  apt:
+    name:
+      - python3-yaml
+      - python-yaml
+    state: absent
+
 - file:
     src: /usr/bin/python3
     dest: /usr/bin/python

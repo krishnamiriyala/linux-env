@@ -8,13 +8,91 @@
     name: core.editor
     scope: global
     value: vim
-
 - git_config:
     name: alias.diffc
     value: diff --cached
     scope: global
-
+- git_config:
+    name: alias.lg
+    value: log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+    scope: global
+- git_config:
+    name: color.branch
+    value: auto
+    scope: global
+- git_config:
+    name: color.branch.current
+    value: yellow reverse
+    scope: global
+- git_config:
+    name: color.branch.local
+    value: yellow
+    scope: global
+- git_config:
+    name: color.branch.remote
+    value: green
+    scope: global
+- git_config:
+    name: color.diff
+    value: auto
+    scope: global
+- git_config:
+    name: color.diff.frag
+    value: magenta bold
+    scope: global
+- git_config:
+    name: color.diff.meta
+    value: yellow bold
+    scope: global
+- git_config:
+    name: color.diff.new
+    value: green bold
+    scope: global
+- git_config:
+    name: color.diff.old
+    value: red bold
+    scope: global
+- git_config:
+    name: color.diff.whitespace
+    value: red reverse
+    scope: global
+- git_config:
+    name: color.status.added
+    value: yellow
+    scope: global
+- git_config:
+    name: color.status
+    value: auto
+    scope: global
+- git_config:
+    name: color.status.changed
+    value: green
+    scope: global
+- git_config:
+    name: color.status.untracked
+    value: cyan
+    scope: global
 - git_config:
     name: color.ui
     value: auto
+    scope: global
+- git_config:
+    name: core.bare
+    value: "false"
+    scope: global
+- git_config:
+    name: core.filemode
+    value: "true"
+    scope: global
+- git_config:
+    name: core.logallrefupdates
+    value: "true"
+    scope: global
+- git_config:
+    name: core.repositoryformatversion
+    value: "0"
+    scope: global
+- git_config:
+    name: core.whitespace
+    value: fix,-indent-with-non-tab,trailing-space,cr-at-eol
     scope: global
