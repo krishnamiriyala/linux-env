@@ -18,7 +18,7 @@
     state: latest
 - name: Extract GO to /usr/local/go/bin
   unarchive:
-    src:  https://golang.org/dl/go1.14.6.linux-amd64.tar.gz
+    src:  https://golang.org/dl/go1.15.linux-amd64.tar.gz
     dest: /usr/local
     remote_src: yes
     creates: /usr/local/go
