@@ -26,6 +26,7 @@
   file:
      src: /usr/local/go/bin/{{ item }}
      dest: /usr/local/bin/{{ item }}
+     state: hard
   loop:
     - go
     - gofmt
