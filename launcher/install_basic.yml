@@ -11,7 +11,7 @@
       - git-review
       - htop
       - jq
-      - libncurses              # nimbus tools
+      - libncurses5             # nimbus tools
       - lib32ncurses5-dev
       - lib32z1
       - mosh
@@ -39,6 +39,11 @@
 - file:
     src: /usr/bin/python3
     dest: /usr/bin/python
+    state: link
+
+- file:
+    src: /lib/x86_64-linux-gnu/libncursesw.so.6
+    dest: /lib/x86_64-linux-gnu/libncursesw.so.5
     state: link
 
 - name: Install PIP pre-requirements
