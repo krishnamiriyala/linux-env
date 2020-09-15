@@ -1,7 +1,7 @@
 ---
 - hosts: all
   tasks:
-  - include: config_ldap.yml
+# - include: config_ldap.yml
   - include: install_bazel.yml
   - include: install_basic.yml
   - include: install_ssh.yml

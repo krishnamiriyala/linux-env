@@ -11,6 +11,7 @@
       - git-review
       - htop
       - jq
+      - libncurses              # nimbus tools
       - lib32ncurses5-dev
       - lib32z1
       - mosh
@@ -78,6 +79,10 @@
     path: /build/toolchain
     state: directory
 
+- file:
+    path: /mts/git
+    state: directory
+
 - mount:
     path: /build/apps
     src: build-apps.eng.vmware.com:/apps
@@ -87,6 +92,18 @@
 - mount:
     path: /build/toolchain
     src: build-toolchain.eng.vmware.com:/toolchain
+    fstype: nfs
+    opts: rw
+    state: mounted
+- mount:
+    path: /mts/git
+    src: mts-git.eng.vmware.com:/git
+    fstype: nfs
+    opts: rw
+    state: mounted
+- mount:
+    path: /mts/git
+    src: mts-git.eng.vmware.com:/git
     fstype: nfs
     opts: rw
     state: mounted
