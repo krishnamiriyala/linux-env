@@ -1,3 +1,3 @@
 # Setup the launcher on new Ubuntu
 
-	ansible-playbook setup_launcher.yaml 
+	ansible-playbook -u root -K setup_launcher.yml 
