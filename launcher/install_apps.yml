@@ -1,5 +1,8 @@
 ---
 - apt:
+    deb: https://github.com/cli/cli/releases/download/v1.0.0/gh_1.0.0_linux_amd64.deb
+
+- apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 - snap:
     name: intellij-idea-ultimate
@@ -18,15 +21,15 @@
     state: latest
 - name: Extract GO to /usr/local/go/bin
   unarchive:
-    src:  https://golang.org/dl/go1.15.linux-amd64.tar.gz
+    src: https://golang.org/dl/go1.15.linux-amd64.tar.gz
     dest: /usr/local
-    remote_src: yes
+    remote_src: true
     creates: /usr/local/go
 - name: Copy GO binaries to /usr/local/bin
   file:
-     src: /usr/local/go/bin/{{ item }}
-     dest: /usr/local/bin/{{ item }}
-     state: hard
+    src: /usr/local/go/bin/{{ item }}
+    dest: /usr/local/bin/{{ item }}
+    state: hard
   loop:
     - go
     - gofmt
