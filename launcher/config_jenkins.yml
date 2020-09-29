@@ -3,3 +3,11 @@
     path: /var/tmp/jenkins/jslave
     state: directory
     mode: '0777'
+
+- git:
+    repo: ssh://git@git.eng.vmware.com/core-build/nsx.git
+    dest: /var/tmp/jenkins/jslave/nsx
+
+- git:
+    repo: ssh://git@git.eng.vmware.com/core-build/nsx-qe.git
+    dest: /var/tmp/jenkins/jslave/nsx-qe

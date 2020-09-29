@@ -1,65 +1,4 @@
 ---
-- name: Install launcher requirements
-  apt:
-    name:
-      - arpwatch
-      - build-essential
-      - colordiff
-      - curl
-      - cython                  # nsx-sdk builds
-      - git
-      - git-review
-      - htop
-      - jq
-      - libncurses5             # nimbus tools
-      - lib32ncurses5-dev
-      - lib32z1
-      - mosh
-      - nfs-common
-      - openjdk-11-jre-headless
-      - open-vm-tools-desktop
-      - 2to3
-      - python3
-      - python3-pip
-      - screen
-      - tmux
-      - traceroute
-      - unzip
-      - vim
-      - wireshark
-    state: present
-
-- file:
-    src: /usr/bin/python3
-    dest: /usr/bin/python
-    state: link
-
-- file:
-    src: /lib/x86_64-linux-gnu/libncursesw.so.6
-    dest: /lib/x86_64-linux-gnu/libncursesw.so.5
-    state: link
-
-- name: Install PIP pre-requirements
-  pip: name=pip state=latest
-
-- name: Install PIP based requirements
-  pip:
-    state: latest
-    name:
-      - gevent
-      - greenlet
-      - ipaddr
-      - jinja2
-      - mako
-      - netaddr
-      - pycodestyle
-      - pylint
-      - pyopenssl
-      - pyyaml
-      - scapy
-      - termcolor
-      - yamllint
-
 - pam_limits:
     domain: "*"
     limit_type: "{{item.limit_type}}"
@@ -107,3 +46,63 @@
     fstype: nfs
     opts: rw
     state: mounted
+- name: Install launcher requirements
+  apt:
+    name:
+      - arpwatch
+      - build-essential
+      - colordiff
+      - curl
+      - cython                  # nsx-sdk builds
+      - git
+      - git-review
+      - htop
+      - jq
+      - libncurses5             # nimbus tools
+      - lib32ncurses5-dev
+      - lib32z1
+      - mosh
+      - nfs-common
+      - openjdk-11-jre-headless
+      - open-vm-tools-desktop
+      - 2to3
+      - python3
+      - python3-pip
+      - screen
+      - tmux
+      - traceroute
+      - unzip
+      - vim
+      - wireshark
+    state: present
+
+- file:
+    src: /usr/bin/python3
+    dest: /usr/bin/python
+    state: link
+
+# file:
+#   src: /lib/x86_64-linux-gnu/libncursesw.so.6
+#   dest: /lib/x86_64-linux-gnu/libncursesw.so.5
+#   state: link
+
+- name: Install PIP pre-requirements
+  pip: name=pip state=latest
+
+- name: Install PIP based requirements
+  pip:
+    state: latest
+    name:
+      - gevent
+      - greenlet
+      - ipaddr
+      - jinja2
+      - mako
+      - netaddr
+      - pycodestyle
+      - pylint
+      - pyopenssl
+      - pyyaml
+      - scapy
+      - termcolor
+      - yamllint

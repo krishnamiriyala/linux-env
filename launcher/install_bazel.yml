@@ -17,10 +17,10 @@
 
 - apt:
     name:
-      - bazel-3.1.0
+      - bazel-3.3.0
     state: present
 
 - file:
-    src: /usr/bin/bazel-3.1.0
+    src: /usr/bin/bazel-3.3.0
     dest: /usr/bin/bazel
     state: link
