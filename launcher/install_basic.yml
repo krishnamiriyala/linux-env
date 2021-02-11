@@ -22,6 +22,10 @@
     path: /mts/git
     state: directory
 
+- apt:
+    name:
+        - nfs-common
+
 - mount:
     path: /build/apps
     src: build-apps.eng.vmware.com:/apps
@@ -88,6 +92,10 @@
 
 - name: Install PIP pre-requirements
   pip: name=pip state=latest
+
+- name: Remove conflicting PyYAML files
+  shell:
+    cmd: rm -rf `find /usr/lib/python* | grep PyYAML`
 
 - name: Install PIP based requirements
   pip:

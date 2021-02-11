@@ -5,12 +5,15 @@
 - apt:
     deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 - snap:
+    name: lnav
+    channel: latest/stable
+- snap:
     name: intellij-idea-ultimate
     channel: latest/stable
     classic: true
 - snap:
     name: terraform
-    channel: latest/stable
+    channel: latest/beta
     classic: true
 - snap:
     name: aws-cli
